@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/react-movie-api/static/css/main.3d618bf4.css",
-    "main.js": "/react-movie-api/static/js/main.52588090.js",
+    "main.js": "/react-movie-api/static/js/main.0f7245d8.js",
     "static/js/453.a5339e45.chunk.js": "/react-movie-api/static/js/453.a5339e45.chunk.js",
     "static/media/fes-logo.png": "/react-movie-api/static/media/fes-logo.75a3b889d6cbc2c4ae55.png",
     "static/media/bg-movie-blur.png": "/react-movie-api/static/media/bg-movie-blur.58a52473d0ca6d00f9db.png",
     "index.html": "/react-movie-api/index.html",
     "main.3d618bf4.css.map": "/react-movie-api/static/css/main.3d618bf4.css.map",
-    "main.52588090.js.map": "/react-movie-api/static/js/main.52588090.js.map",
+    "main.0f7245d8.js.map": "/react-movie-api/static/js/main.0f7245d8.js.map",
     "453.a5339e45.chunk.js.map": "/react-movie-api/static/js/453.a5339e45.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3d618bf4.css",
-    "static/js/main.52588090.js"
+    "static/js/main.0f7245d8.js"
   ]
 }
