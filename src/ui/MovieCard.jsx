@@ -1,10 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 const MovieCard = ({ movie, isLoading }) => {
+  const location = useLocation();
+  const [failedPosterUrl, setFailedPosterUrl] = useState(null);
+
   if (isLoading) {
     return (
-      <div className="movie-card movie-card--skeleton">
+      <div
+        className="movie-card movie-card--skeleton"
+        aria-hidden="true"
+      >
         <div className="movie-card__img--skeleton"></div>
         <div className="movie-card__title--skeleton"></div>
         <div className="movie-card__year--skeleton"></div>
@@ -16,29 +22,42 @@ const MovieCard = ({ movie, isLoading }) => {
     return null;
   }
 
-  const posterUrl = movie.Poster && movie.Poster !== 'N/A' ? movie.Poster : null;
+  const posterUrl =
+    movie.Poster && movie.Poster !== 'N/A'
+      ? movie.Poster
+      : null;
+
+  const showPoster =
+    posterUrl && posterUrl !== failedPosterUrl;
 
   return (
-    <Link to={`/movie/${movie.imdbID}`} style={{ textDecoration: 'none' }}>
+    <Link
+      to={`/movie/${movie.imdbID}`}
+      state={{
+        from: `${location.pathname}${location.search}`,
+      }}
+    >
       <div className="movie-card">
-        {posterUrl ? (
+        {showPoster ? (
           <img
             className="movie-card__img"
             src={posterUrl}
-            alt={movie.Title}
-            onError={(e) => {
-              e.target.style.display = 'none';
-              e.target.nextSibling.style.display = 'flex';
-            }}
+            alt={`${movie.Title} poster`}
+            onError={() => setFailedPosterUrl(posterUrl)}
           />
-        ) : null}
-        {!posterUrl ? (
+        ) : (
           <div className="movie-card__poster-placeholder">
-            No Poster Available
+            Movie Poster Not Available
           </div>
-        ) : null}
-        <h3 className="movie-card__title">{movie.Title}</h3>
-        <p className="movie-card__year">{movie.Year}</p>
+        )}
+
+        <h3 className="movie-card__title">
+          {movie.Title}
+        </h3>
+
+        <p className="movie-card__year">
+          {movie.Year}
+        </p>
       </div>
     </Link>
   );

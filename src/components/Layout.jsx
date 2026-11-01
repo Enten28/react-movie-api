@@ -7,8 +7,9 @@ const Layout = () => {
     <>
       <Nav />
       <main className="main">
-        {/* Outlet goes here, where child pages render */}
+        <Outlet />
       </main>
+      <Footer />
     </>
   )
 }

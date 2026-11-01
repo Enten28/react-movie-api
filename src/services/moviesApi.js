@@ -1,5 +1,5 @@
-const API_KEY = process.env.REACT_APP_OMDB_API_KEY || '6ab91971';
-const BASE_URL = 'http://www.omdbapi.com/';
+const API_KEY = '6ab91971';
+const BASE_URL = 'https://www.omdbapi.com/';
 
 export const DEFAULT_MOVIE_IDS = [
   'tt3896198', // Guardians of the Galaxy Vol. 2
